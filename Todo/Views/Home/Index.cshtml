@@ -1,0 +1,8 @@
+﻿@{
+    var listToDo = ViewData["Todo"] as Todo;
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Message"]</h1>
+    <p>@listToDo.Title @listToDo.Status</p>
+</div>

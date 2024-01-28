@@ -1,8 +1,49 @@
-﻿@{
-    var listToDo = ViewData["Todo"] as Todo;
+﻿@model Todo
+@{
+    var listTodo = ViewData["Data"] as IEnumerable<Todo>;
 }
-
 <div class="text-center">
-    <h1 class="display-4">@ViewData["Message"]</h1>
-    <p>@listToDo.Title @listToDo.Status</p>
+    <h1 class="display-4">TODO</h1>
+    <form asp-action="NewTask" method="post">
+        <div>
+            <label asp-for="Title">Title Job:</label>
+            <input asp-for="Title"/>
+        </div>
+        <div>
+            <label asp-for="Detail">Detail:</label>
+            <input asp-for="Detail"/>
+        </div>
+        <div>
+            <label asp-for="Status">Status</label>
+            <select asp-for="Status">
+                <option value="">Choose an option</option>
+                <option value="Done">Done</option>
+                <option value="Doing">Doing</option>
+                <option value="Planning">Planning</option>
+            </select>
+        </div>
+        <button type="submit">Create</button>
+    </form>
+    <table class="">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Detail</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+        @if (listTodo != null)
+        {
+            @foreach (var todo in listTodo)
+            {
+                <tr>
+                    <td>@todo.Title</td>
+                    <td>@todo.Detail</td>
+                    <td>@todo.Status</td>
+                </tr>
+            }
+        }
+        </tbody>
+    </table>
 </div>

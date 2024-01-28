@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nTOxhHtKAQc7MZ5emmIVgQ4KZYbVc1W5s969N4fyvgRuRdEYNFXapDmN/hv0uyNp1sQoKed7+ON8xJjldSsxiw==",
+  "dgSpecHash": "c9CAw4SMT79O4J2Qlk45CtLM9JoOg4aPHy4T2Ft5NoHFvEiJzOXCq2dwYMk9FA+SJc+852MkYJpgNkDT6sNejA==",
   "success": true,
-  "projectFilePath": "/home/talos/Desktop/Todo/Todo/Todo.csproj",
+  "projectFilePath": "/home/talos/Desktop/Project/Todo/Todo/Todo.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

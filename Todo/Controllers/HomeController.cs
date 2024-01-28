@@ -6,27 +6,19 @@ namespace Todo.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
-    {
-        _logger = logger;
-    }
-
     public IActionResult Index()
     {
         ViewData["Message"] = "Welcome to my todo app";
-        ViewData["ToDo"] = new Models.Todo()
-        {
-            Title = "code backend ASP.NET",
-            Status = "Not Done"
-        };
+        ViewData["Data"] = Repository.Responses;
+        Console.Write(Repository.Responses);
         return View();
     }
 
-    public IActionResult Privacy()
+    [HttpPost]
+    public IActionResult NewTask(Models.Todo todoResponse)
     {
-        return View();
+        Repository.AddTodo(todoResponse);
+        return RedirectToAction("Index");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

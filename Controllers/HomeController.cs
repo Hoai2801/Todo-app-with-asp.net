@@ -23,6 +23,14 @@ public class HomeController : Controller
         return RedirectToAction("Index");
     }
     
+    [HttpPost, ActionName("Done")]
+    [ValidateAntiForgeryToken]
+    public ActionResult DeleteConfirmed(int id)
+    {
+        Repository.DoneTodo(id);
+        return RedirectToAction("Index");
+    }
+    
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

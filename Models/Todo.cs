@@ -2,10 +2,8 @@ namespace Todo.Models;
 
 public class Todo
 {
-    public int Id { get; set; }
+    private static int _nextId = 0;
+    public int Id { get; } = _nextId++;
     public string? Title { get; set; }
-    
     public string? Detail { get; set; }
-    
-    public string? Status { get; set; }
 }

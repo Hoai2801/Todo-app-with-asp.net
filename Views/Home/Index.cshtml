@@ -2,11 +2,11 @@
 @{
     var listTodo = ViewData["Data"] as IEnumerable<Todo>;
 }
-<div class="text-center">
+<div class="text-center p-3">
     <h1 class="display-4">TODO</h1>
-    <form asp-action="NewTask" method="post">
+    <form asp-action="NewTask" method="post" class="flex flex-col gap-3 items-center">
         <div>
-            <label asp-for="Title">Title Job:</label>
+            <label asp-for="Title">Title:</label>
             <input asp-for="Title"/>
         </div>
         <div>
@@ -22,28 +22,30 @@
                 <option value="Planning">Planning</option>
             </select>
         </div>
-        <button type="submit">Create</button>
+        <button type="submit" class="bg-blue-400 my-3 px-3 py-2 rounded-lg">Create</button>
     </form>
-    <table class="">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Detail</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-        @if (listTodo != null)
-        {
-            @foreach (var todo in listTodo)
-            {
+    <div class="w-full flex justify-center">
+        <table class="w-[700px]">
+            <thead>
                 <tr>
-                    <td>@todo.Title</td>
-                    <td>@todo.Detail</td>
-                    <td>@todo.Status</td>
+                    <th>Title</th>
+                    <th>Detail</th>
+                    <th>Status</th>
                 </tr>
+            </thead>
+            <tbody>
+            @if (listTodo != null)
+            {
+                @foreach (var todo in listTodo)
+                {
+                    <tr>
+                        <td>@todo.Title</td>
+                        <td>@todo.Detail</td>
+                        <td>@todo.Status</td>
+                    </tr>
+                }
             }
-        }
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 </div>

@@ -17,10 +17,12 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult NewTask(Models.Todo todoResponse)
     {
+        // add new task to repository
         Repository.AddTodo(todoResponse);
+        // redirect to home page
         return RedirectToAction("Index");
     }
-
+    
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
